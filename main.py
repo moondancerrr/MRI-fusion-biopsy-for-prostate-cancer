@@ -70,3 +70,12 @@ plt.figure(figsize=(5,5))
 plt.imshow(sitk.GetArrayFromImage(img_overlay_gold[:,:,35]))
 plt.axis('off')
 plt.show()
+
+#Part B
+#cast img_segmentation type to solve int being unsigned 
+seg = sitk.Cast(img_segmentation,sitk.sitkInt8)
+
+utils.seg_eval_dice(img_segmentation, seg)   
+
+
+#Part C
