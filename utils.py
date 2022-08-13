@@ -42,4 +42,14 @@ def get_target_loc(mask):
 
     centroid = label_shape_statistics_image_filter.GetCentroid(1)
     print(centroid)
-    
+
+#Part D
+
+def pixel_extract(img_prostate, point, width):
+    seg = sitk.ConfidenceConnected(img_prostate, seedList=point,
+                                   numberOfIterations=1,
+                                   multiplier=2.5,
+                                   initialNeighborhoodRadius=width,
+                                   replaceValue=1)
+
+    #returning intensities of seg

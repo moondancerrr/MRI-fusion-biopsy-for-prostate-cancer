@@ -57,3 +57,11 @@ interact(utils.slice_view, img_prostate = fixed(img_prostate), slice_ind=(0,71))
 #slice 40 is the largest
 
 utils.get_target_loc(img_segmentation[:,:,40])
+
+#Part D
+
+utils.pixel_extract(img_prostate, (6.664,-12.810,-13.852), 6)
+
+#visualize intensities
+
+plt.boxplot()
