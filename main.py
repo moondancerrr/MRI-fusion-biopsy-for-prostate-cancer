@@ -79,3 +79,10 @@ utils.seg_eval_dice(img_segmentation, seg)
 
 
 #Part C
+#checking the slice with largest area visually 
+    
+interact(utils.slice_view, img_prostate = fixed(img_prostate), slice_ind=(0,71))  
+
+#slice 40 is the largest
+
+utils.get_target_loc(img_segmentation[:,:,40])

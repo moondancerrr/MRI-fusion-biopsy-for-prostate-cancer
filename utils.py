@@ -26,4 +26,20 @@ def seg_eval_dice(img_segmentation, seg):
     print(DSC.GetFalsePositiveError())
 
 #Part C
-get_target_loc():
+
+from ipywidgets import interact, fixed
+slice_ind = 35
+def slice_view(img_prostate,slice_ind):
+    plt.imshow(sitk.GetArrayFromImage(img_prostate[:,:,slice_ind]), 
+               cmap='gray', vmin=0, vmax=400)
+    plt.axis('off')
+    plt.colorbar()
+    plt.show()
+
+def get_target_loc(mask):
+    label_shape_statistics_image_filter = sitk.LabelShapeStatisticsImageFilter()
+    label_shape_statistics_image_filter.Execute(mask)
+
+    centroid = label_shape_statistics_image_filter.GetCentroid(1)
+    print(centroid)
+    
